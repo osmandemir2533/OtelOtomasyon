@@ -21,5 +21,10 @@ namespace OtelYeniProje.Formlar.Araclar
         {
             webBrowser1.Navigate("http://www.google.com");
         }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 }
