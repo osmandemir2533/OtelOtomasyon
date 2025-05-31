@@ -1,8 +1,8 @@
 # Otel Otomasyon Projesi
 
-Otel Otomasyon, otel yönetimi süreçlerini dijitalleştiren, modern, kapsamlı ve çok katmanlı bir otomasyon sistemidir. Proje, ileri düzey veritabanı modellemesi, SQL ve yazılım mühendisliği prensipleriyle geliştirilmiştir.
+Otel Otomasyon, otel yönetimi süreçlerini dijitalleştiren, modern, kapsamlı ve çok katmanlı bir otomasyon sistemidir. Proje, ileri düzey veritabanı modellemesi, SQL, C# ve yazılım mühendisliği prensipleriyle geliştirilmiştir.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/osmandemir2533/OtelOtomasyon)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/osmandemir2533)
 
 ---
 
@@ -17,8 +17,24 @@ cd OtelOtomasyon/OtelYeniProje/OtelYeniProje
 
 ### 2. Veritabanı Kurulumu ve Migration Sırası
 
-#### a) Veritabanı Oluşturma
-- `scripts yeni.txt` dosyasındaki komutları **SQL Server Management Studio**'da çalıştırarak temel veritabanı ve tabloları oluşturun.
+#### a)  Veritabanı İlk Kurulum: scripts yeni.txt Kullanımı
+
+Veritabanını ilk kez kurarken aşağıdaki adımları izleyin:
+
+1. **SQL Server Management Studio (SSMS)** programını açın.
+2. Sunucunuza bağlanın.
+3. Sol menüde **Databases** (Veritabanları) kısmına sağ tıklayın ve **New Database...** seçeneğini seçin.
+4. Açılan pencerede veritabanı adını (ör: `otelRezervasyonu`) yazın ve **OK** ile oluşturun.
+5. Yeni oluşturduğunuz veritabanına tıklayın (sol menüde).
+6. Üst menüden **New Query** butonuna tıklayın.
+7. Açılan sorgu penceresine, projenizdeki `scripts yeni.txt` dosyasının içeriğini **tamamını kopyalayıp yapıştırın**.
+8. Üstteki **Execute** (veya F5) butonuna basarak scripti çalıştırın.
+9. Script başarıyla çalıştıysa, tüm tablolar, ilişkiler, trigger, view ve prosedürler otomatik olarak oluşacaktır.
+
+> **Not:** Scripti çalıştırmadan önce doğru veritabanı üzerinde olduğunuzdan emin olun (sorgu penceresinin sol üstünde veritabanı adı seçili olmalı).
+
+Bu adımları tamamladıktan sonra, App.config bağlantı ayarınızı yapıp migration işlemlerine geçebilirsiniz.
+
 
 #### b) App.config Connection String Ayarı
 - `App.config` dosyasındaki `<connectionStrings>` bölümünü kendi SQL Server ayarınıza göre düzenleyin:
@@ -30,13 +46,7 @@ cd OtelOtomasyon/OtelYeniProje/OtelYeniProje
        provider=System.Data.SqlClient;
        provider connection string='data source=YOUR_SERVER_NAME;
        initial catalog=otelRezervasyonu;
-       integrated security=True;
-       pooling=False;
-       multipleactiveresultsets=True;
-       encrypt=True;
-       trustservercertificate=True;
-       application name=EntityFramework'" 
-       providerName="System.Data.EntityClient"/>
+       ...
 </connectionStrings>
 ```
 > **Not:** `YOUR_SERVER_NAME` kısmını kendi bilgisayarınızdaki SQL Server adıyla değiştirin.
@@ -109,16 +119,69 @@ OtelOtomasyon/
 
 ---
 
+
+# 🖼️ Arayüz (UI) Ekran Görüntüleri
+
+Aşağıda uygulamanın temel ekran görüntüleri (arayüz) yer almaktadır.
+
+- **Ana Menü **
+  > ![Ana Menü](https://github.com/user-attachments/assets/798b9664-b6bd-4320-8743-5c148e098d24)
+
+- **Müşteri Ekranı**
+  > ![Müşteri Ekranı](https://github.com/user-attachments/assets/2366cf58-c13c-44c5-bddf-5e7ade3e24c9)
+
+- **Personel Yönetimi**
+  > ![Personel Yönetimi](https://github.com/user-attachments/assets/80e4b12d-b6f1-49c3-bee4-209cc7affb0e)
+
+- **Ürün Yönetimi**
+  > ![Ürün Yönetimi](https://github.com/user-attachments/assets/40b1db09-93a4-4bf6-afe4-a721f489570a)
+
+- **Rezervasyon Ekranı**
+  > ![Rezervasyon Ekranı](https://github.com/user-attachments/assets/2c67f643-7e36-41d2-992f-8381bcc1b2aa)
+
+- **Tanımlamalar Ekranı**
+  > ![Tanımlamalar Ekranı](https://github.com/user-attachments/assets/03d84186-c21d-4e60-88d8-a2c5a0a33eb2)
+
+- >>>>>>>>>Durum Tanımlamaları
+  > ![Durum Tanımlamaları](https://github.com/user-attachments/assets/30b56c5b-db0e-4efe-887b-a21089c265c8)
+- >>>>>>>>>Birim Tanımlamaları
+  > ![Birim Tanımlamaları](https://github.com/user-attachments/assets/af1b751b-085f-45da-8b1a-0ae06cb2b260)
+- >>>>>>>>>Departman Tanımlamaları
+  > ![Departman Tanımlamaları](https://github.com/user-attachments/assets/18e3c66f-d7ef-4c84-829a-ff41d5ee1225)
+- >>>>>>>>>Görev Tanımlamaları
+  > ![Görev Tanımlamaları](https://github.com/user-attachments/assets/0c532053-b639-4f42-89db-ab9313d8b274)
+- >>>>>>>>>Kasa Tanımlamaları
+  > ![Kasa Tanımlamaları](https://github.com/user-attachments/assets/1bf8ebfa-9411-4e4b-8f58-a57f0822147c)
+- >>>>>>>>>Kur Tanımlamaları
+  > ![Kur Tanımlamaları](https://github.com/user-attachments/assets/ea850b69-7e3f-4f46-abfa-419c68032eb7)
+- >>>>>>>>>Oda Tanımlamaları
+  > ![Oda Tanımlamaları](https://github.com/user-attachments/assets/df2549ae-b23e-4acf-848f-466804415614)
+- >>>>>>>>>Telefon Tanımlamaları
+  > ![Telefon Tanımlamaları](https://github.com/user-attachments/assets/fdcc93f1-6cf6-4b5a-84a9-79aa67cf5810)
+- >>>>>>>>>Ülke Tanımlamaları
+  > ![Ülke Tanımlamaları](https://github.com/user-attachments/assets/50893395-e2a4-4c8a-a139-767114ac1183)
+- >>>>>>>>>Ürün Grubu
+  > ![Ürün Grubu Tanımlamaları](https://github.com/user-attachments/assets/b1b29e96-af86-4b0c-b7d5-ecec6066de58)
+
+- **Araçlar Ekranı**
+  > ![Araçlar Ekranı](https://github.com/user-attachments/assets/dc4fa371-c194-4ffe-b823-c20c3c2ce646)
+
+- **Kasa Ekranı**
+  > ![Kasa Ekranı](https://github.com/user-attachments/assets/52864687-6a7c-4846-8e8f-cf5ddf082de3)
+
+- **Grafikler Ekranı**
+  > ![Grafikler Ekranı](https://github.com/user-attachments/assets/e96b7688-c6f4-4067-babb-c6592ea5f8bd)
+
+- **Web Site Ekranı**
+  > ![Web Site Ekranı](https://github.com/user-attachments/assets/a772deb0-7d5d-4df6-a71d-60a6632965e0)
+
+---
+
 ## 🗄️ Veritabanı Modeli ve İlişkiler
 
-### ER Diyagramı ve İlişkisel Model
-
-- Projenin ER diyagramı hem görsel (drawio, png) hem de açıklamalı olarak dosyalarda mevcuttur.
-- **Tablolar arası ilişkiler**:  
-  - Bire-bir, bire-çok, çok-çok ilişkiler
-  - Zayıf varlıklar, varolma bağımlılığı, ayrışma, örtüşme, dışlama gibi tüm kavramsal yapılar uygulanmıştır.
-
 #### Temel Tablolar ve İlişkiler
+> ![Tablolar Arası İlişkiler](https://github.com/user-attachments/assets/b0c6228e-f20a-4b7b-bf97-4028bb2cccac)
+- Projenin Tablolar ve İlişkileri görsel olarak dosyalarda mevcuttur.
 - **TblPersonel**: Otel çalışanları
 - **TblMisafir**: Otel misafirleri
 - **TblOda**: Odalar
@@ -128,6 +191,20 @@ OtelOtomasyon/
 - **TblTasIt, TblTaksi, TblOtobus**: Dışlama (exclusion) ilişkisi
 - **TblEsya, TblElektronik, TblMobilya**: Ayrışma (disjoint) ilişkisi
 - **reservation_types, online_reservations, phone_reservations**: Örtüşme (overlapping) ilişkisi
+
+### EDMX/Database Diagram
+
+> ![Database Diagram SSMS](https://github.com/user-attachments/assets/121f690f-48a2-4f5a-ab5d-e0c1af8428ae)
+> ![EDMX DİAGRAM](https://github.com/user-attachments/assets/201e4f5f-5e65-405c-8389-e24e9e25d81c)
+- Projenin EDMX/Database Diagramı hem görsel (png) hem dosya (pdf) hem de açıklamalı olarak dosyalarda mevcuttur.
+
+### ER Diyagramı ve İlişkisel Model
+> ![ER Diagram](https://github.com/user-attachments/assets/eb2b2867-ec12-4323-a502-566edbd98636)
+- Projenin ER diyagramı hem görsel (drawio, png) hem de açıklamalı olarak dosyalarda mevcuttur.
+- **Tablolar arası ilişkiler**:  
+  - Bire-bir, bire-çok, çok-çok ilişkiler
+  - Zayıf varlıklar, varolma bağımlılığı, ayrışma, örtüşme, dışlama gibi tüm kavramsal yapılar uygulanmıştır.
+
 
 #### ER Diyagramı Açıklamaları ve SQL Kodları
 
@@ -355,14 +432,14 @@ SELECT PersonelID, AdSoyad, Departman FROM TblPersonel
 
 ## 🔄 Veri Ekleme, Silme, Güncelleme (Çalışan/Çalışmayan Kısımlar)
 
-- **GÖREV** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY)
+- **GÖREV** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY)
 - **DEPARTMAN** ekleme işleminde id sıralaması otomatik yapamıyor, manuel id numara yaz
 - **KASA**'da giren ve çıkan değerler trigger'larla çalışıyor
-- **ODA** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY)
-- **TELEFON** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY)
-- **ÜLKE** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY)
-- **ÜRÜN GRUP** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY)
-- **İLLER** ekleme işleminde id sıralaması otomatik yapıyor, sen yazma id numara (IDENTITY) -- sadece SSMS'de ekleniyor
+- **ODA** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY)
+- **TELEFON** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY)
+- **ÜLKE** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY)
+- **ÜRÜN GRUP** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY)
+- **İLLER** ekleme işleminde id sıralaması otomatik yapıyor, id numara yazmana gerek yok (IDENTITY) -- sadece SSMS'de ekleniyor
 - **İLÇELER** ekleme işleminde IDENTITY özelliğini açmak lazım (sadece SSMS'de ekleniyor):
   ```sql
   SET IDENTITY_INSERT [otelRezervasyonu].[dbo].[ilceler] ON;
@@ -412,28 +489,6 @@ SELECT PersonelID, AdSoyad, Departman FROM TblPersonel
 
 ---
 
-## 🧩 Migration ve Sıfırdan Kurulum
-
-1. **Veritabanı scriptini** (`scripts yeni.txt`) çalıştırın.
-2. Eğer Entity Framework kullanıyorsanız:
-   - Migration oluşturun: `Add-Migration InitialCreate`
-   - Veritabanını güncelleyin: `Update-Database`
-3. **Tüm tablolar, ilişkiler, trigger, view ve prosedürler otomatik oluşacaktır.**
-4. **Dikkat:** Migration dosyaları repoda olmayabilir, her geliştirici kendi ortamında migration basmalıdır.
-
----
-
-## 🖼️ Diyagramlar ve Görseller
-
-- **ER Diyagramı**:  
-  ![ER Diyagramı](./otel_Otomasyon__yeni.drawio.png)  
-  (drawio dosyasını açarak veya export ederek görüntüleyebilirsiniz)
-- **EDMX/Database Diagram**:  
-  ![Database Diagram](./dbdiagram.png)  
-  (Proje dosyalarında veya yukarıdaki görsellerde mevcut)
-
----
-
 ## ⚙️ Proje Çalıştırma Notları
 
 - Projeyi **Ctrl+F5** ile başlatın (hata ayıklama olmadan).
@@ -442,21 +497,6 @@ SELECT PersonelID, AdSoyad, Departman FROM TblPersonel
 - Migration işlemlerini kendi ortamınızda yapın.
 - SQL Server'ın çalışır durumda olduğundan emin olun.
 
----
-
-## 📬 İletişim
-
-Her türlü soru ve destek için:
-
-[![Web Sitem](https://img.shields.io/badge/Web%20Site-1976d2?style=for-the-badge&logo=google-chrome&logoColor=white)](https://osmandemir2533.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/osmandemir2533/)
-
----
-
-> Proje, ileri düzey veritabanı modellemesi, SQL ve yazılım mühendisliği prensipleriyle geliştirilmiştir.  
-> Tüm kod, diyagram ve açıklamalar repoda ve yukarıdaki dosyalarda mevcuttur.
-
----
 
 **Not:**  
 - Proje ile ilgili tüm SQL, ER, trigger, view, prosedür, migration ve CRUD örnekleri dosyalarda detaylıca açıklanmıştır.
@@ -471,3 +511,19 @@ Her türlü soru ve destek için:
 - **Projeyi çalıştırmadan önce NuGet paketleri yüklenmeli.**
 - **Projeyi Ctrl+F5 ile başlatın (hata ayıklama olmadan).**
 - **Migration dosyaları repoda olmayabilir, her geliştirici kendi ortamında migration basmalıdır.**
+---
+
+## 📬 İletişim
+
+Her türlü soru ve destek için:
+
+[![Web Sitem](https://img.shields.io/badge/Web%20Site-1976d2?style=for-the-badge&logo=google-chrome&logoColor=white)](https://osmandemir2533.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/osmandemir2533/)
+
+---
+
+> Proje, ileri düzey veritabanı modellemesi, SQL, C# ve yazılım mühendisliği prensipleriyle geliştirilmiştir.  
+> Tüm kod, diyagram ve açıklamalar repoda ve yukarıdaki dosyalarda mevcuttur.
+
+---
+
