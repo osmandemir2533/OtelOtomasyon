@@ -59,7 +59,7 @@ Bu adımları tamamladıktan sonra, App.config bağlantı ayarınızı yapıp mi
   Add-Migration InitialCreate
   Update-Database
   ```
-- Bu adımlar, Entity Framework ile modeldeki değişiklikleri veritabanına uygular.
+> **Not:** Bu adımlar, Entity Framework ile modeldeki değişiklikleri veritabanına uygular. Veri Ekleme konusunda ise Kullanıcı kendi Veritabanına istediği verileri ekleyebilecektir, projede veritabanı paylaşılmamıştır. Aşağıdaki arayüz kısmından örnek veriler görülebilir ve buna benzer veriler ekleyebilir. Veri ekleme işlemi SQL Server Management Studio (SSMS) üzerinden veya program arayüzünden yapılabilir.
 
 #### d) NuGet Paketleri
 - Projeyi açtıktan sonra NuGet paketlerini geri yükleyin (Restore).
