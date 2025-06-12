@@ -42,8 +42,7 @@ Bu adımları tamamladıktan sonra, App.config bağlantı ayarınızı yapıp mi
 ```xml
 <connectionStrings>
   <add name="DbOtelYeniEntities" 
-       connectionString="metadata=res://*/Entity.Model1.csdl|res://*/Entity.Model1.ssdl|res://*/Entity.Model1.msl;
-       provider=System.Data.SqlClient;
+       connectionString="metadata=res://*/Entity.Model1.csdl ...;
        provider connection string='data source=YOUR_SERVER_NAME;
        initial catalog=otelRezervasyonu;
        ...
@@ -458,7 +457,7 @@ SELECT PersonelID, AdSoyad, Departman FROM TblPersonel
   INSERT INTO [otelRezervasyonu].[dbo].[TblPersonel]
   ([AdSoyad], [TC], [Adres], [Telefon], [Mail], [IseGirisTarih], [IstenCikisTarih], [Departman], [Gorev], [Aciklama], [Durum], [KimlikOn], [KimlkArka], [Sifre], [Yetki])
   VALUES 
-  ('Osman Al Mansouri', '12345678901', 'Örnek Mah. 123 Sokak No: 5', '05001234567', 'osman.almansouri@example.com', '2024-01-01', NULL, 8, 5, 'Staj işlemleri hakkında bilgiler girildi.', 7, NULL, NULL, 'parola123', 3);
+  ('Büşra Aksakallı', '12345678901', 'Örnek Mah. 123 Sokak No: 5', '05001234567', 'busra.aksakalli@example.com', '2024-01-01', NULL, 8, 5, 'Staj işlemleri hakkında bilgiler girildi.', 7, NULL, NULL, 'parola123', 3);
   ```
 - **Ürünler** kısmında trigger'lar kullanıldı. Hem arayüzde hem de SSMS'de ekleme/güncelleme işlemleri yapılabiliyor.
   ```sql
@@ -479,11 +478,11 @@ SELECT PersonelID, AdSoyad, Departman FROM TblPersonel
   )
   VALUES
   (
-    3, '2024-12-25', '2024-12-30', 1, 5, '0555 123 45 67', 'Oda 5 rezervasyonu yapıldı.', 20, NULL, NULL, NULL, 1500
+    3, '2024-12-25', '2024-12-30', 1, 5, '0555 555 55 55', 'Oda 5 rezervasyonu yapıldı.', 20, NULL, NULL, NULL, 1500
   );
 
   UPDATE [otelRezervasyonu].[dbo].[TblRezervasyon]
-  SET [Telefon] = '5788523456'
+  SET [Telefon] = '5555555556'
   WHERE [Misafir] = 3;
   ```
 
